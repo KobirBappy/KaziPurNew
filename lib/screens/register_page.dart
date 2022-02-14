@@ -1,10 +1,11 @@
+import 'dart:ui';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:kazipurprojects/constants.dart';
 import 'package:kazipurprojects/screens/home_page.dart';
-
 import 'login_page.dart';
 
 
@@ -105,6 +106,7 @@ class _RegisterPageState extends State<RegisterPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+
               Container(
                 padding: EdgeInsets.only(
                   top: 24.0,
@@ -114,6 +116,9 @@ class _RegisterPageState extends State<RegisterPage> {
                   textAlign: TextAlign.center,
                   style: Constants.boldHeading,
                 ),
+              ),
+              Container(
+                child: Image.asset('assets/images/logo2.png'),
               ),
               Column(
                 children: [
@@ -203,7 +208,10 @@ class _RegisterPageState extends State<RegisterPage> {
 
                       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
                         return LoginPage();
-                      }));},child: Text('Back to login page'),),
+                      }));
+                     // Navigator.pop(context);
+
+                      },child: Text('Back to login page'),),
 
                     // SignInButton(
                     //   Buttons.Google,

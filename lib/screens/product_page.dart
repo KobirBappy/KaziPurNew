@@ -86,7 +86,7 @@ class _ProductPageState extends State<ProductPage> {
                         horizontal: 24.0,
                       ),
                       child: Text(
-                        "\$${documentData['price']}",
+                        "\৳${documentData['price']}",
                         style: TextStyle(
                           fontSize: 18.0,
                           color: Theme.of(context).accentColor,

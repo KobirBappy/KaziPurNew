@@ -1,8 +1,5 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_signin_button/flutter_signin_button.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:kazipurprojects/constants.dart';
 import 'package:kazipurprojects/screens/home_page.dart';
 import 'package:kazipurprojects/screens/register_page.dart';
@@ -15,15 +12,11 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
  String _loginEmail = "";
   String _loginPassword = "";
-
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-
   bool isVisible = true;
-
   Future<void> _alertDialogBuilder(String error) async {
     return showDialog(
         context: context,
@@ -74,28 +67,6 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-Future<void> _googleSignUp() async {
-    try {
-      final GoogleSignIn _googleSignIn = GoogleSignIn(
-        scopes: ['email'],
-      );
-      final FirebaseAuth _auth = FirebaseAuth.instance;
-
-      final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
-      final GoogleSignInAuthentication googleAuth =
-          await googleUser.authentication;
-
-      final AuthCredential credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth.accessToken,
-        idToken: googleAuth.idToken,
-      );
-      final User user = (await _auth.signInWithCredential(credential)).user;
-      return user;
-    } catch (e) {
-      print(e.message);
-    }
-  }
-
 
 @override
   Widget build(BuildContext context) {
@@ -115,6 +86,9 @@ Future<void> _googleSignUp() async {
                   textAlign: TextAlign.center,
                   style: Constants.boldHeading,
                 ),
+              ),
+              Container(
+                child: Image.asset('assets/images/logo2.png'),
               ),
               Column(
                 children: [
@@ -162,7 +136,7 @@ Future<void> _googleSignUp() async {
                       onChanged: (value) {
                         _loginPassword = value;
                       },
-                      
+
                       decoration: InputDecoration(
                           // icon: Icon(Icons.mail),
                           prefixIcon: Icon(Icons.lock),
@@ -206,20 +180,8 @@ Future<void> _googleSignUp() async {
                       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
                       return RegisterPage();
                     }));},child: Text('Resistretion'),),
-                   
-                    SignInButton(
-                        Buttons.Google,
-                        text: "Sign in with Google",
-                        onPressed: () async {
-                          await _googleSignUp().then(
-                            (value) => Navigator.of(context).pushReplacement(
-                              MaterialPageRoute(
-                                builder: (context) => HomePage(),
-                              ),
-                            ),
-                          );
-                        },
-                      ),
+
+
                   ],
                 ),
               ),

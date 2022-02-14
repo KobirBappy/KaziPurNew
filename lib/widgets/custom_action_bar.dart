@@ -55,16 +55,10 @@ class CustomActionBar extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.greenAccent,
                   borderRadius: BorderRadius.circular(8.0),
+
                 ),
                 alignment: Alignment.center,
-                child: Image(
-                  image: AssetImage(
-                    "assets/images/back_arrow.png"
-                  ),
-                  color: Colors.white,
-                  width: 16.0,
-                  height: 16.0,
-                ),
+                child: Icon(Icons.arrow_back)
               ),
             ),
           if(_hasTitle)

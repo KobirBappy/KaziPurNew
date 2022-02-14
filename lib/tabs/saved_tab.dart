@@ -28,8 +28,9 @@ class SavedScreen extends StatelessWidget {
                 );
               }
 
-
+              // Collection Data ready to display
               if (snapshot.connectionState == ConnectionState.done) {
+                // Display the data inside a list view
                 return ListView(
                   padding: EdgeInsets.only(
                     top: 108.0,
@@ -88,9 +89,9 @@ class SavedScreen extends StatelessWidget {
                                     ),
                                     child: Column(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                      MainAxisAlignment.start,
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           "${_productMap['name']}",
@@ -104,7 +105,7 @@ class SavedScreen extends StatelessWidget {
                                             vertical: 4.0,
                                           ),
                                           child: Text(
-                                            "\৳${_productMap['price']}",
+                                            "\$${_productMap['price']}",
                                             style: TextStyle(
                                                 fontSize: 16.0,
                                                 color: Theme.of(context)

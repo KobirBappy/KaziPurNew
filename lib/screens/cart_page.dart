@@ -105,7 +105,7 @@ class _CartPageState extends State<CartPage> {
                                             vertical: 4.0,
                                           ),
                                           child: Text(
-                                            "\৳${_productMap['price']}",
+                                            "\$${_productMap['price']}",
                                             style: TextStyle(
                                                 fontSize: 16.0,
                                                 color: Theme.of(context)
@@ -115,7 +115,7 @@ class _CartPageState extends State<CartPage> {
                                           ),
                                         ),
                                         Text(
-                                          "Size - ${document.get('size')}",
+                                          "Size - ${document.data()['size']}",
                                           style: TextStyle(
                                               fontSize: 16.0,
                                               color: Colors.black,
